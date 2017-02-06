@@ -1,0 +1,14 @@
+@mixin content {
+  content: '';
+}
+
+@mixin breakpoint($value) {
+  $str: breakpoint($value);
+  $bp: index($-zf-breakpoints-keys, $value);
+
+  @if $str == '' {
+    @content;
+  } @else {
+    @content;
+  }
+}

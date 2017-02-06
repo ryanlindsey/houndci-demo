@@ -1,0 +1,102 @@
+@import '_functions.scss';
+@import '_mixins.scss';
+
+$white: #fFfFfF;
+$black: #0a0A0A;
+$teal:  #00CDbE;
+
+$_localColor-variable: #000000;
+
+$breakpoints: (
+  small: 0,
+  medium: 640px,
+  large: 1024px,
+  xlarge: 1200px,
+  xxlarge: 1440px,
+)!default;
+
+/* Comment example */
+@function _breakPoint($val: $-zf-zero-breakpoint) {
+  @return 'medium';
+}
+
+@mixin breakpoint($value) {
+  $str: _breakPoint($value);
+  $bp: index($-zf-breakpoints-keys, $value);
+
+  @if $str == '' {
+    @content;
+  } @else {
+    @content;
+  }
+}
+
+.listing-card {
+  @include breakpoint($medium) {
+    width: 60rem;
+    height: 30rem;
+  }
+
+  background-color: $white;
+  height: 15em;
+  width: 30rem;
+  display: block;
+}
+
+.Listing-Card--featured {
+  border: 1.0rem solid $teal;
+}
+
+.Listing-Card__title {
+  font-size: 20rem;
+  color: black;
+}
+
+.Listing-Card__description {
+  font-weight: bold;
+
+  @include breakpoint {
+    margin-top: 1rem;
+  }
+}
+
+footer[role='contentinfo'] {
+  background: $white;
+
+  &:before {
+    color: $white;
+  }
+
+  &:hover {
+    color: $teal;
+  }
+
+  figure {
+    color: $white;
+
+    figcaption {
+      p {
+        font-size: 1rem;
+      }
+    }
+  }
+}
+
+p {
+  border: none; // sass-lint:disable-line border-zero
+}
+
+// sass-lint:disable border-zero
+img {
+  border: none;
+}
+
+// sass-lint:disable-all
+section {
+  background: yellow;
+  display: flex;
+  color: pink;
+  top: 0;
+  position: absolute;
+  cursor: pointer;
+}

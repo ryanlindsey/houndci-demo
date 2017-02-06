@@ -1,0 +1,3 @@
+@function breakpoint($val: $-zf-zero-breakpoint) {
+  @return 'medium';
+}
